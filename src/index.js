@@ -1,1 +1,51 @@
 import './style.css';
+import {getScores, renderScores, submitScore} from './modules/functions.js'
+
+
+const submitForm = document.querySelector('#addScoreForm');
+const refreshScoreBtn = document.querySelector('.btn.refresh');
+const scoreBox = document.querySelector('.scores');
+
+const gameId = 'Wg4I0z6OKTRJzU6wugcM';
+
+submitForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const scoreName = e.target.scoreName.value;
+    const score = e.target.score.value;
+
+    e.target.scoreName.value = '';
+    e.target.score.value = '';
+
+    (async ()=>{
+        try{
+            await submitScore(gameId, scoreName, score);
+            alert('Score added successfully, wait for scores to update');
+            const newScores = await getScores(gameId);
+            renderScores(scoreBox, newScores.result);
+        }catch(err){
+            console.error(err.message);
+        }
+    })()
+})
+
+refreshScoreBtn.addEventListener('click', ()=>{
+    (async ()=>{
+        try{
+            const res = await getScores(gameId);
+            renderScores(scoreBox, res.result);
+        }catch(err){
+            console.error(err.message);
+        }
+    })()
+})
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    (async ()=>{
+        try{
+            const res = await getScores(gameId);
+            renderScores(scoreBox, res.result);
+        }catch(err){
+            console.error(err.message);
+        }
+    })()
+})
