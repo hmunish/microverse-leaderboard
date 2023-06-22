@@ -73,7 +73,7 @@ div.scoreboard {
 }
 
 .scores > li:nth-child(even) {
-  background-color: lightblue;
+  background-color: rgb(147, 219, 243);
 }
 
 div.addscore {
