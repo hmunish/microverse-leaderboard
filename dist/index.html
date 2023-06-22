@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<script defer src="bundleca324bf618451cbc84dc.js"></script></head>
+<script defer src="bundleecab62322a42a3036810.js"></script></head>
 <body>
-    <h1>Test</h1>
+    <!-- Main section starts here -->
+    <main>
+        <h1 class="title">Leaderboard</h1>
+        <section class="leaderboard">
+            <div class="scoreboard">
+                <div class="refresh-wrapper"><h2 class="title">Recent scores</h2><button class="btn refresh">Refresh</button></div>
+                <ul class="scores">
+                    <!-- Score will be rendered by api -->
+                </ul>
+            </div>
+            <div class="addscore">
+                <h2 class="title">Add your score</h2>
+                <form id="addScoreForm">
+                    <input type="text" name="scoreName" placeholder="Your name" required>
+                    <input type="text" name="score" placeholder="Your score" required>
+                    <button type="submit" class="btn submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!-- Main section ends here -->
 </body>
 </html>
